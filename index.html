@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cross-Image Attention</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBKFF5WPJF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-KBKFF5WPJF');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Cross-Image Attention for Zero-Shot Appearance Transfer</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yuval-alaluf.github.io/">Yuval Alaluf</a><sup>*</sup>&nbsp
+            </span>
+
+            <span class="author-block">
+              <a>Daniel Garibi</a><sup>*</sup>&nbsp
+            </span>
+
+            <span class="author-block">
+              <a href="https://orpatashnik.github.io/">Or Patashnik</a>&nbsp
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.elor.sites.tau.ac.il/">Hadar Averbuch-Elor</a>&nbsp
+            </span>
+
+            <span class="author-block">
+              <a href="https://danielcohenor.com/">Daniel Cohen-Or</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Tel Aviv University</span>
+          </div>
+          <div class="is-size-8 publication-authors">
+            <span class="author-block"><sup>*</sup>Denotes equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/garibida/cross-image-attention"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="static/images/teaser_site.jpg">
+      <h2 class="subtitle has-text-centered">
+        Given two images depicting a source structure and a target appearance, our method generates an image merging the structure
+        of one image with the appearance of the other. We do so in a zero-shot manner, with no optimization or model training required while supporting 
+        appearance transfer across images that may differ in size and shape. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light is-small">
+    <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Recent advancements in text-to-image generative models have demonstrated a remarkable ability to capture
+            a deep semantic understanding of images. In this work, we leverage this semantic knowledge to transfer the
+            visual appearance between objects that share similar semantics but may differ significantly in shape. To
+            achieve this, we build upon the self-attention layers of these generative models and introduce a cross-image
+            attention mechanism that implicitly establishes semantic correspondences across images. Specifically, given
+            a pair of images &ndash;&ndash;&ndash; one depicting the target structure and the other specifying the desired appearance &ndash;&ndash;&ndash;
+            our cross-image attention combines the queries corresponding to the structure image with the keys and values
+            of the appearance image. This operation, when applied during the denoising process, leverages the
+            established semantic correspondences to generate an image combining the desired structure and appearance.
+            In addition, to improve the output image quality, we harness three mechanisms that either manipulate the
+            noisy latent codes or the model's internal representations throughout the denoising process. Importantly,
+            our approach is zero-shot, requiring no optimization or training. Experiments show that our method is
+            effective across a wide range of object categories and is robust to variations in shape, size, and viewpoint
+            between the two input images.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop is-centered has-text-centered">
+      <h2 class="title is-3">Results</h2>
+      <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+          <img src="static/images/carousell/eiffel_sagrada.jpg" style="width: 80%;">
+          <img src="static/images/carousell/norte_dame.jpg" style="width: 80%;">
+          <img src="static/images/carousell/giraffe_zebra.jpg" style="width: 80%;">
+          <img src="static/images/carousell/horse_kangaroo.jpg" style="width: 80%;">
+          <img src="static/images/carousell/chocolate_red_velvet.jpg" style="width: 80%;">
+          <img src="static/images/carousell/square_fruit.jpg" style="width: 80%;">
+          <img src="static/images/carousell/red_vintage_beetle.jpg" style="width: 80%;">
+          <img src="static/images/carousell/red_vintage_vintage.jpg" style="width: 80%;">
+          <img src="static/images/carousell/fish.jpg" style="width: 80%;">
+          <img src="static/images/carousell/fish2.jpg" style="width: 80%;">
+          <img src="static/images/carousell/landscape.jpg" style="width: 80%;">
+          <img src="static/images/carousell/bird.jpg" style="width: 80%;">
+          <img src="static/images/carousell/pizza_burger.jpg" style="width: 80%;">
+      </div>
+  </div>
+  <br><br>
+<div class="container is-max-desktop is-centered has-text-centered">
+  <div id="results-carousel" class="carousel results-carousel" data-slides-to-show="1">
+    <img src="static/images/carousell/buildings_multi.jpg" style="width: 80%;">
+    <img src="static/images/carousell/car_multi.jpg" style="width: 80%;">
+    <img src="static/images/carousell/cake_multi.jpg" style="width: 80%;">
+    <img src="static/images/carousell/bird_multi.jpg" style="width: 80%;">
+    <img src="static/images/carousell/house_multi.jpg" style="width: 80%;">
+  </div>
+</div>
+</div>
+</section>
+
+
+<section class="section hero is-light is-small is-centered" style="align-content: center;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">How does it work?</h2>
+      <img src="static/images/method.png">
+      <div class="content has-text-justified is-centered">
+        <ul class="c column is-centered has-text-justified">
+        <li class="c">
+          Given a structure image and an appearance image, we begin by inverting the two images into the latent space of a pretrained image diffusion model. 
+        </li>
+        <li class="c">
+          At each timestep t, we replace the self-attention layer with our cross-image attention layer by 
+          mixing the keys and values from \(z_t^{app}\) with the query of \(z_t^{out}\).
+        </li>
+        <li class="c">
+          To improve the output image quality, we introduce three extensions. 
+          <ol class="b column is-centered has-text-justified">
+            <li class="b"> 
+              We apply a contrast operation encouraging the \(Q_{out}\) to attend to a smaller set of keys in \(K_{app}\).
+            </li>
+            <li class="b">
+              We introduce an appearance guidance mechanism akin to classifier-free guidance used for text-guided
+              image synthesis.
+            </li>
+            <li  class="b">
+              We apply an AdaIN operation over \(z_{t-1}^{out}\) to better align with the feature statistics of \(z_{t-1}^{app}\).
+            </li>
+          </ol>
+        </li>
+        <li class="c">
+          This process is repeated across multiple timesteps of the denoising process and multiple layers of the network decoder, resulting in the gradual appearance transfer.
+        </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="section hero is-small is-centered" style="align-content: center;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Cross-Image Attention for Implicit Correspondences</h2>
+      <img class="my-image" src="static/images/cross-image-attention.jpg">
+      <div class="content has-text-justified is-centered">
+        <ul class="column is-centered has-text-justified">
+          <li>
+            Our cross-attention implicitly establishes semantic correspondences across images.
+          </li>
+          <li>
+            For each query (marked in red, green, and yellow), we compute attention maps between the query and all keys at a specific attention layer. 
+          </li>
+          <li>
+            In the first two rows, we show the self-attention maps, which focus on semantically similar regions in the image.
+            For instance, the yellow query attends to the legs of the giraffe in the structure image and to nearby grass
+            pixels in the background of the appearance image.
+          </li>
+          <li>
+            In the bottom row, we use our cross-image attention. Now, each query on the giraffe corresponds to semantically similar regions of the zebra. For example, the red query attends to the head of the zebra while the yellow query points to its legs.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="section hero is-light is-small is-centered" style="align-content: center;">
+  <div class="container is-max-desktop">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Cross Domain Appearance Transfer</h2>
+      <div class="content has-text-justified is-centered">
+        <p style="text-align: center;">
+          Our approach can transfer appearance between cross-domain objects. This transfer is possible even in a zero-shot setting thanks to the strong correspondences already captured by the diffusion model itself.
+        </p>
+        <br>
+        <img src="static/images/carousell/cross_domain.jpg" style="width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop is-centered has-text-centered">
+      <h2 class="title is-3">Addtional Results</h2>
+      <p>
+        Additional appearance transfer results obtained by our method.
+      </p>
+      <br>
+      <div id="results-carousel" class="carousel results-carousel has-text-centered" data-slides-to-show="1" style="align-content: center;">
+        <img src="static/images/carousell/building_gird.jpg" style="width: 60%;">
+        <img src="static/images/carousell/car_grid.jpg" style="width: 60%;">
+        <img src="static/images/carousell/bird_grid.jpg" style="width: 60%;">
+      </div>
+  </div>
+</section>
+
+
+
+<section class="section is-light" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{,
+    author    = {},
+    title     = {},
+    booktitle = {},
+    year      = {2023}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/">Nerfies</a> project page. If you want to reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
