@@ -36,6 +36,12 @@ Our method can also be used to transfer appearance between cross-domain objects.
 ## Citation
 If you use this code for your research, please cite the following work: 
 ```
-@misc{
+@misc{alaluf2023crossimage,
+      title={Cross-Image Attention for Zero-Shot Appearance Transfer}, 
+      author={Yuval Alaluf and Daniel Garibi and Or Patashnik and Hadar Averbuch-Elor and Daniel Cohen-Or},
+      year={2023},
+      eprint={2311.03335},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
