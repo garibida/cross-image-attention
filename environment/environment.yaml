@@ -1,0 +1,10 @@
+name: cross_image
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.8.5
+  - pip=20.3
+  - cudatoolkit=11.3
+  - pip:
+    - -r requirements.txt
