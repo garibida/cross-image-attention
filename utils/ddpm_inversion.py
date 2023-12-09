@@ -14,7 +14,7 @@ LOW_RESOURCE = True
 
 
 def invert(x0, pipe, prompt_src="", num_diffusion_steps=100, cfg_scale_src=3.5, eta=1):
-    #  inverts a real image according to Algorihm 1 in https://arxiv.org/pdf/2304.06140.pdf,
+    #  inverts a real image according to Algorithm 1 in https://arxiv.org/pdf/2304.06140.pdf,
     #  based on the code in https://github.com/inbarhub/DDPM_inversion
     #  returns wt, zs, wts:
     #  wt - inverted latent

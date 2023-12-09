@@ -8,6 +8,15 @@ def masked_adain(content_feat, style_feat, content_mask, style_mask):
     return content_feat * (1 - content_mask) + style_normalized_feat * content_mask
 
 
+def adain(content_feat, style_feat):
+    assert (content_feat.size()[:2] == style_feat.size()[:2])
+    size = content_feat.size()
+    style_mean, style_std = calc_mean_std(style_feat)
+    content_mean, content_std = calc_mean_std(content_feat)
+    normalized_feat = (content_feat - content_mean.expand(size)) / content_std.expand(size)
+    return normalized_feat * style_std.expand(size) + style_mean.expand(size)
+
+
 def calc_mean_std(feat, eps=1e-5, mask=None):
     # eps is a small value added to the variance to avoid divide-by-zero.
     size = feat.size()

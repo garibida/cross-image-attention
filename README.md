@@ -42,7 +42,7 @@ python run.py \
 --struct_image_path /path/to/structure/image.png \
 --output_path /path/to/output/images.png \
 --domain_name [domain the objects are taken from (e.g., animal, building)] \
---used_masked_adain True \
+--use_masked_adain True \
 --contrast_strength 1.67 \
 --swap_guidance_scale 3.5 \
 ```

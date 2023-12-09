@@ -7,7 +7,7 @@ from config import RunConfig
 from constants import OUT_INDEX, STRUCT_INDEX, STYLE_INDEX
 from models.stable_diffusion import CrossImageAttentionStableDiffusionPipeline
 from utils import attention_utils
-from utils.adain import masked_adain
+from utils.adain import masked_adain, adain
 from utils.model_utils import get_stable_diffusion_model
 from utils.segmentation import Segmentor
 
@@ -42,12 +42,15 @@ class AppearanceTransferModel:
         def callback(st: int, timestep: int, latents: torch.FloatTensor) -> Callable:
             self.step = st
             # Compute the masks using prompt mixing self-segmentation and use the masks for AdaIN operation
-            if self.step == self.config.adain_range.start:
+            if self.config.use_masked_adain and self.step == self.config.adain_range.start:
                 masks = self.segmentor.get_object_masks()
                 self.set_masks(masks)
             # Apply AdaIN operation using the computed masks
             if self.config.adain_range.start <= self.step < self.config.adain_range.end:
-                latents[0] = masked_adain(latents[0], latents[1], self.image_struct_mask_64, self.image_app_mask_64)
+                if self.config.use_masked_adain:
+                    latents[0] = masked_adain(latents[0], latents[1], self.image_struct_mask_64, self.image_app_mask_64)
+                else:
+                    latents[0] = adain(latents[0], latents[1])
 
         return callback
 
