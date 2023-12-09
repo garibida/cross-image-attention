@@ -22,12 +22,12 @@ def load_size(image_path: pathlib.Path,
               top: int = 0,
               bottom: int = 0,
               size: int = 512) -> Image.Image:
-    if type(image_path) is str or type(image_path) is pathlib.PosixPath:
-        image = np.array(Image.open(image_path).convert('RGB'))
+    if isinstance(image_path, (str, pathlib.Path)):
+        image = np.array(Image.open(str(image_path)).convert('RGB'))  
     else:
         image = image_path
 
-    h, w, c = image.shape
+    h, w, _ = image.shape
 
     left = min(left, w - 1)
     right = min(right, w - left - 1)
