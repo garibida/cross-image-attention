@@ -111,7 +111,7 @@ class AppearanceTransferModel:
                 should_mix = False
 
                 # Potentially apply our cross image attention operation
-                # To do so, we need to be in a self-attention alyer in the decoder part of the denoising network
+                # To do so, we need to be in a self-attention layer in the decoder part of the denoising network
                 if perform_swap and not is_cross and "up" in self.place_in_unet and model_self.enable_edit:
                     if attention_utils.should_mix_keys_and_values(model_self, hidden_states):
                         should_mix = True
