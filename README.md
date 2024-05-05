@@ -1,4 +1,4 @@
-# Cross-Image Attention for Zero-Shot Appearance Transfer
+# Cross-Image Attention for Zero-Shot Appearance Transfer (SIGGRAPH 2024)
 
 > Yuval Alaluf*, Daniel Garibi*, Or Patashnik, Hadar Averbuch-Elor, Daniel Cohen-Or  
 > Tel Aviv University  
